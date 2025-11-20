@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h1>Zde je Header</h1>
+        
     </header>
     <main>
         <dev class="container">
@@ -32,13 +32,15 @@
                     <button type="submit">Sign Up</button>
                 </form>
             <section class="sign_in">
-                <p>Already have an account? </p>
-                <a href="#">Sign In</a>
+                <div class="sign_in_card">
+                    <p>Already have an account? </p>
+                    <a href="#">Sign In</a>
+                </div>
             </section>
         </dev>
     </main>
     <footer>
-        <h1>Zde je Footer</h1>
+        
     </footer>
 </body>
 </html>
