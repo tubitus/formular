@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-// Database connection and form handling
-// Update $dbuser and $dbpass to match your environment
 $dbhost = '127.0.0.1';
 $dbname = 'apexclone';
 $dbuser = 'root';
@@ -14,7 +12,6 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]);
 } catch (PDOException $e) {
-    // In production, avoid echoing raw errors
     die('Database connection failed: ' . $e->getMessage());
 }
 
@@ -34,10 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (!$terms) {
         $error = 'You must agree to the Terms of Service and Privacy Policy.';
     } else {
-        // Hash password
+   
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
-        // Insert user
         try {
             $stmt = $pdo->prepare('INSERT INTO users (username, email, password) VALUES (:username, :email, :password)');
             $stmt->execute([
@@ -45,11 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':email' => $email,
                 ':password' => $passwordHash,
             ]);
-            // After successful registration redirect to login page
-            header('Location: login.php?registered=1');
+            header('Location: php/login.php?registered=1');
             exit;
         } catch (PDOException $e) {
-            // Handle duplicate email or other DB errors
             if ($e->getCode() === '23000') {
                 $error = 'An account with this email already exists.';
             } else {
@@ -59,7 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// add logout handling (placed before any output)
 if (isset($_GET['logout'])) {
     session_unset();
     session_destroy();
@@ -87,7 +80,6 @@ if (isset($_GET['logout'])) {
                 <h1>Create an account</h1>
             </section>
             <section class="form">
-                <!-- show messages -->
                 <?php if ($error): ?>
                     <div class="error" style="color: #c00; margin-bottom:8px;"><?php echo htmlspecialchars($error); ?></div>
                 <?php endif; ?>
@@ -95,7 +87,6 @@ if (isset($_GET['logout'])) {
                     <div class="success" style="color: #0a0; margin-bottom:8px;"><?php echo htmlspecialchars($success); ?></div>
                 <?php endif; ?>
 
-                <!-- form: method set to POST, inputs given name attributes -->
                 <form method="post" action="">
                     <p>Username</p>
                     <input type="text" name="username" value="<?php echo htmlspecialchars($_POST['username'] ?? ''); ?>" required>
@@ -112,7 +103,7 @@ if (isset($_GET['logout'])) {
             <section class="sign_in">
                 <div class="sign_in_card">
                     <p>Already have an account? </p>
-                    <a href="login.php">Sign In</a>
+                    <a href="php/login.php">Sign In</a>
                 </div>
             </section>
         </dev>

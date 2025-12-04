@@ -1,0 +1,156 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(180deg, #0b1020 0%, #050507 100%);
+    min-height: 100vh;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    color: #f5f5f7;
+}
+
+.account-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.account-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.logout-btn {
+    background: linear-gradient(90deg, #ff4b4b, #c81d1d);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.logout-btn:hover {
+    opacity: 0.9;
+}
+
+.alert {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.alert-error {
+    background: rgba(200, 29, 29, 0.2);
+    color: #ffb3b3;
+    border: 1px solid rgba(255, 179, 179, 0.3);
+}
+
+.alert-success {
+    background: rgba(0, 150, 0, 0.2);
+    color: #b8ffbf;
+    border: 1px solid rgba(184, 255, 191, 0.3);
+}
+
+.account-section {
+    background: rgba(10, 10, 12, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.account-section h2 {
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.account-section p {
+    margin: 0.5rem 0;
+    color: #d7d7db;
+}
+
+.profile-pic-container {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.profile-pic:hover {
+    opacity: 0.8;
+}
+
+.profile-pic-placeholder {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d7d7db;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.profile-pic-placeholder:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.account-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.account-form input {
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.03);
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.account-form input:focus {
+    outline: none;
+    border-color: rgba(255, 75, 75, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.account-form button {
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: none;
+    background: linear-gradient(90deg, #ff4b4b, #c81d1d);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.account-form button:hover {
+    opacity: 0.9;
+}

@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Database credentials -- match those in index.php
 $dbhost = '127.0.0.1';
 $dbname = 'apexclone';
 $dbuser = 'root';
@@ -19,7 +18,6 @@ try {
 $error = '';
 $success = '';
 
-// show registration message when redirected from index.php
 if (isset($_GET['registered'])) {
     $success = 'Registration successful. Please log in.';
 }
@@ -39,11 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user = $stmt->fetch();
 
             if ($user && password_verify($password, $user['password'])) {
-                // Successful login
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
-                // Redirect to protected page after login
-                header('Location: protected.php');
+                header('Location: stranka.php');
                 exit;
             } else {
                 $error = 'Invalid email or password.';
@@ -75,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endif; ?>
             <?php if ($success): ?>
                 <div class="success" style="color:#0a0;"><?php echo htmlspecialchars($success); ?></div>
-                <p><a href="index.php">Go to home</a> — or <a href="index.php?logout=1">Log out</a></p>
+                <p><a href="/index.php">Go to home</a> — or <a href="/index.php?logout=1">Log out</a></p>
             <?php else: ?>
                 <section class="form">
                     <form method="post" action="">
@@ -89,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <section class="sign_in">
                     <div class="sign_in_card">
                         <p>Don't have an account? </p>
-                        <a href="index.php">Create account</a>
+                        <a href="/index.php">Create account</a>
                     </div>
                 </section>
             <?php endif; ?>

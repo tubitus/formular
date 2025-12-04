@@ -31,7 +31,9 @@ CREATE TABLE `users` (
   `ID` int(11) NOT NULL,
   `Username` text COLLATE utf8_czech_ci NOT NULL,
   `Email` text COLLATE utf8_czech_ci NOT NULL,
-  `Password` text COLLATE utf8_czech_ci NOT NULL
+  `Password` text COLLATE utf8_czech_ci NOT NULL,
+  `profile_picture` longblob,
+  `profile_picture_type` varchar(50) COLLATE utf8_czech_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 --
